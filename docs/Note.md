@@ -10,7 +10,7 @@ According to official docs...
 > Dagger will generate a class that implements the component type.
 > The generated type will be named DaggerYourType (or DaggerYourType_NestedType for nested types)
 
-Component is..
+About Component..
 
 - Responsible for providing dependencies to other classes.
 - Just a simple way to implement factory pattern.
@@ -23,7 +23,12 @@ Component is..
 
 > @Inject on a constructor tells Dagger how to instantiate that class. We’ll see more shortly.
 
+> Parameters to an @Inject constructor are the dependencies of the class.
+> Dagger will provide a class’s dependencies to instantiate the class itself.
+> Note that this is recursive: a dependency may have dependencies of its own!
 
-Inject is..
+About Inject..
 
-- A connection between user of the dependency, and the provider - Component.
+- Inject is a connection between user of the dependency, and the provider - Component.
+- Inject is an edge between nodes in dependency graph.
+- Dependency resolving (instantiating the class) process is recursive.
