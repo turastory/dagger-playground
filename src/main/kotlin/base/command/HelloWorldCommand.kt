@@ -1,9 +1,12 @@
 package base.command
 
 import base.Command
+import base.output.Outputter
 import javax.inject.Inject
 
-class HelloWorldCommand @Inject constructor() : Command {
+class HelloWorldCommand @Inject constructor(
+    private val outputter: Outputter
+) : Command {
     override fun key(): String {
         return "hello"
     }
@@ -12,7 +15,7 @@ class HelloWorldCommand @Inject constructor() : Command {
         return when {
             input.isNotEmpty() -> Command.Status.INVALID
             else -> {
-                println("Hello World")
+                outputter.output("world!")
                 Command.Status.HANDLED
             }
         }

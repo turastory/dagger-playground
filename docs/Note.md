@@ -10,8 +10,6 @@ According to official docs...
 > Dagger will generate a class that implements the component type.
 > The generated type will be named DaggerYourType (or DaggerYourType_NestedType for nested types)
 
-About Component..
-
 - Responsible for providing dependencies to other classes.
 - Just a simple way to implement factory pattern.
 
@@ -26,8 +24,6 @@ About Component..
 > Parameters to an @Inject constructor are the dependencies of the class.
 > Dagger will provide a class’s dependencies to instantiate the class itself.
 > Note that this is recursive: a dependency may have dependencies of its own!
-
-About Inject..
 
 - Inject is a connection between user of the dependency, and the provider - Component.
 - Inject is an edge between nodes in dependency graph.
@@ -44,14 +40,26 @@ About Inject..
 > Dagger already knows how to construct (the method’s parameter)
 > with a type that Dagger doesn’t yet know how to construct (the method’s return type).
 
-About Binds..
-
 - It tells Dagger how to construct an instance.
 - It "binds" the parameter type and the return type - when someone request return type,
   then it provides an instance of return type, automatically.
   There should be an instruction on how to build an instance of return type, of course,
   something like @Inject constructor or @Provides
 - Binds must be inside a module.
+
+
+### @Provides
+
+> A @Provides method works a lot like an @Inject constructor:
+> here it tells Dagger that when it needs an instance of Outputter,
+> it should call SystemOutModule.textOutputter() to get one.
+
+> @Provides methods can contain arbitrary code as long as they return an instance of the provided type.
+> They do not need to create a new instance on each invocation.
+
+- It tells Dagger how to construct an instance.
+- It tells Dagger that when something requests an instance of the type the method returns, it should call that method to get an instance.
+- @Provides works very similar to @Inject constructor
 
 
 ### @Modules
@@ -62,8 +70,6 @@ About Binds..
 > @Modules are classes or interfaces that act as collections of instructions for Dagger
 > on how to construct dependencies. They’re called modules because they are modular:
 > you can mix and match modules in different applications and contexts.
-
-About Modules..
 
 - Modules are classes/interfaces that give us some instructions on how to construct dependencies.
 - Modules are modular, so you can mix them in different applications.
