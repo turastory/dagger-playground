@@ -47,6 +47,15 @@ According to official docs...
   something like @Inject constructor or @Provides
 - Binds must be inside a module.
 
+#### Multi-bindings using @IntoMap
+
+> The @StringKey annotation, combined with @IntoMap,
+> tells Dagger how to populate a Map<String, Command>.
+
+- It is possible to bind several implementations for same polymorphic type.
+- There's no magic. It just tells Dagger how to populate Map<KeyType, ValueType>.
+- We can request map of instances, instead of a single instance.
+
 
 ### @Provides
 
