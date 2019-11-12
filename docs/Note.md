@@ -82,3 +82,20 @@ According to official docs...
 
 - Modules are classes/interfaces that give us some instructions on how to construct dependencies.
 - Modules are modular, so you can mix them in different applications.
+
+
+### Scope
+
+> Dagger by default provides one Database object when LoginCommand requests it
+> and another when DepositCommand requests it.
+
+> In order to tell Dagger that they both need to share the same instance of Database,
+> we annotate the Database class with @Singleton.
+> We also annotate our @Component type with @Singleton to declare
+> that instances of classes annotated with @Singleton should be shared
+> among other objects that depend on them in this component.
+
+- @Singleton tells Dagger to create only single instance, and share it.
+- @Singleton can be used on the declaration of class that has an @Inject constructor, or @Binds or @Provides methods.
+- We should also annotate component with @Singleton,
+  in order to share an instance annotated with @Singleton among other objects in that component.
