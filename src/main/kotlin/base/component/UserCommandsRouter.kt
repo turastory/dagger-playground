@@ -3,10 +3,12 @@ package base.component
 import base.CommandRouter
 import base.database.Database
 import base.module.UserCommandsModule
+import base.scope.PerSession
 import dagger.BindsInstance
 import dagger.Module
 import dagger.Subcomponent
 
+@PerSession
 @Subcomponent(modules = [UserCommandsModule::class])
 interface UserCommandsRouter {
     // CommandRouter is hidden from its parent component.

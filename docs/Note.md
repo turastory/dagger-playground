@@ -152,3 +152,24 @@ According to official docs...
 - Qualifiers are applied to @Provides or @Binds methods & injection site, to distinguish which one to use,
   when there are several provide methods that returns same type.
 - Qualifiers are often used with common data types like String, Int, etc.
+
+
+### @Scope
+
+> Annotating both WithdrawalLimiter and UserCommandsRouter with @PerSession
+> indicates to Dagger that a single WithdrawalLimiter should be created for every instance of UserCommandsRouter.
+
+> Note the difference between the @Singleton Database and the @PerSession WithdrawalLimiter.
+> There is one Database instance shared among all the objects in the single CommandProcessorFactory instance,
+> but there is a separate instance of WithdrawalLimiter for each instance of UserCommandsRouter.
+
+> Note that the name of the scope is meaningless;
+> even multiple instances of a @Singleton-annotated type can be created
+> if multiple @Singleton-annotated @Components are instantiated in a single JVM.
+
+- Scopes are annotations, annotated with @Scope
+- Scope can be applied to component/subcomponent and @Provides/@Binds methods or @Inject constructor.
+- A @Scope annotation instructs Dagger to provide one shared instance for all the requests for that type
+  within an instance of the (sub)component that shares the same annotation.
+- The lifetime of a scoped instance is directly related to the lifetime of the component with that scope.
+- @Singleton is not special. It's just one of "pre-defined" scopes.
