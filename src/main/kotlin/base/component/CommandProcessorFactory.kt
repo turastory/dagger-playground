@@ -4,7 +4,6 @@ import base.CommandProcessor
 import base.module.HelloWorldModule
 import base.module.LoginModule
 import base.module.SystemOutModule
-import base.module.UserCommandsModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -13,8 +12,8 @@ import javax.inject.Singleton
     modules = [
         HelloWorldModule::class,
         LoginModule::class,
-        UserCommandsModule::class,
-        SystemOutModule::class
+        SystemOutModule::class,
+        UserCommandsRouter.InstallationModule::class
     ]
 )
 interface CommandProcessorFactory {

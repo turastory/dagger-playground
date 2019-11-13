@@ -13,6 +13,43 @@ According to official docs...
 - Responsible for providing dependencies to other classes.
 - Just a simple way to implement factory pattern.
 
+#### @Subcomponent
+
+> A @Subcomponent is similar to a @Component: it has abstract methods that Dagger implements,
+> and it can use @Modules. It always has a parent component, and it can access any type that
+> the parent component can access. Any types it creates are hidden from the parent component.
+
+> We have a module that declares the subcomponent. Including this module in another component
+> will make the @Subcomponent.Factory available there. That’s our bridge between the two components.
+
+- Subcomponent always has a parent component.
+- It can access types that parent component can access - It *inherits* parent component.
+- Parent component cannot access its subcomponent.
+- We can connect component and subcomponent using a module, which declares the subcomponent.
+
+-> Subcomponent can be used as a encapsulation mechanism in Dagger module system.
+
+#### @Component.Factory / @Subcomponent.Factory
+
+> The @Factory annotation annotates a factory type for this component.
+> It’s an interface we define.
+
+> A @Factory-annotated type creates instances of the component.
+> If it is a subcomponent, an  instance of it is requestable in the parent component.
+
+- Factory is used to create component/subcomponent
+- Factory of subcomponent is requestable in, or can be injected in parent component.
+
+#### @BindsInstance
+
+> Factory has a single method that creates an instance of the component/subcomponent.
+> That method may have a @BindsInstance parameter, which tells Dagger that
+> the Account instance we pass as an argument should be requestable
+> by any @Inject constructor, @Binds method, or @Provides method in this component/subcomponent.
+
+- It binds an instance of the type within the component/subcomponent.
+- A type annotated with @BindsInstance, is requestable in the component.
+
 
 ### @Inject
 

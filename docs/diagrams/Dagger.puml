@@ -1,0 +1,30 @@
+@startuml DaggerComponents
+object Factory
+object Account
+object Component
+object SubComponent
+
+frame ParentComponentScope {
+    object Module1
+    object Module2
+    object InstallationModule {
+        subcomponent = SubComponent
+    }
+}
+
+frame SubComponentScope {
+    object Module3
+    object Module4
+}
+
+Component o-- Module1
+Component o-- Module2
+Component o-- InstallationModule
+Factory .. Account : BindsInstance
+Account <-- SubComponentScope : can request
+Factory <-- ParentComponentScope : can request
+ParentComponentScope <-- SubComponentScope : can request
+SubComponent -- Factory
+SubComponent o-- Module3
+SubComponent o-- Module4
+@enduml
