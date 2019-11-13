@@ -2,6 +2,7 @@ package base.module
 
 import base.Command
 import base.command.DepositCommand
+import base.command.LogoutCommand
 import base.command.WithdrawCommand
 import dagger.Binds
 import dagger.Module
@@ -19,4 +20,9 @@ internal abstract class UserCommandsModule {
     @IntoMap
     @StringKey("withdraw")
     internal abstract fun withdrawCommand(command: WithdrawCommand): Command
+
+    @Binds
+    @IntoMap
+    @StringKey("logout")
+    internal abstract fun logoutCommand(command: LogoutCommand): Command
 }

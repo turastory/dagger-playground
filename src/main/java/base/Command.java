@@ -26,6 +26,10 @@ public interface Command {
             return new Result(Status.INVALID, Optional.empty());
         }
 
+        public static Result inputCompleted() {
+            return new Result(Status.INPUT_COMPLETED, Optional.empty());
+        }
+
         public Result(Status status, Optional<CommandRouter> nestedCommandRouter) {
             this.status = status;
             this.nestedCommandRouter = nestedCommandRouter;
