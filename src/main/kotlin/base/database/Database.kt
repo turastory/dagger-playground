@@ -18,11 +18,11 @@ class Database @Inject constructor() {
         var balance: BigDecimal = BigDecimal.ZERO
     ) {
         fun deposit(amount: BigDecimal) {
-            this.balance -= amount
+            this.balance += amount
         }
 
         fun withdraw(amount: BigDecimal) {
-            this.balance += amount
+            this.balance -= amount
         }
     }
 }

@@ -5,11 +5,9 @@ import base.qualifiers.MinimumBalance
 import dagger.Module
 import dagger.Provides
 import java.math.BigDecimal
-import javax.inject.Singleton
 
-@Singleton
 @Module
-interface AmountsModule {
+class AmountsModule {
     @Provides
     @MinimumBalance
     fun minimumBalance(): BigDecimal {
