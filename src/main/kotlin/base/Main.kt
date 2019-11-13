@@ -1,16 +1,17 @@
 package base
 
-import base.component.DaggerCommandRouterFactory
+import base.component.DaggerCommandProcessorFactory
 import java.util.*
 
 fun main() {
     println("Hello World")
 
     val scanner = Scanner(System.`in`)
-    val commandRouterFactory = DaggerCommandRouterFactory.create()
-    val commandRouter = commandRouterFactory.router()
+    val processor = DaggerCommandProcessorFactory
+        .create()
+        .commandProcessor()
 
     while (scanner.hasNextLine()) {
-        commandRouter.route(scanner.nextLine())
+        processor.process(scanner.nextLine())
     }
 }

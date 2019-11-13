@@ -1,11 +1,11 @@
 package base.component
 
-import dagger.Component
-import base.CommandRouter
+import base.CommandProcessor
 import base.module.HelloWorldModule
 import base.module.LoginModule
 import base.module.SystemOutModule
 import base.module.UserCommandsModule
+import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
@@ -17,6 +17,6 @@ import javax.inject.Singleton
         SystemOutModule::class
     ]
 )
-interface CommandRouterFactory {
-    fun router(): CommandRouter
+interface CommandProcessorFactory {
+    fun commandProcessor(): CommandProcessor
 }
