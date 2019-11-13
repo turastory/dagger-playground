@@ -17,8 +17,12 @@ class Database @Inject constructor() {
         val username: String,
         var balance: BigDecimal = BigDecimal.ZERO
     ) {
-        fun deposit(bigDecimal: BigDecimal) {
-            this.balance -= bigDecimal
+        fun deposit(amount: BigDecimal) {
+            this.balance -= amount
+        }
+
+        fun withdraw(amount: BigDecimal) {
+            this.balance += amount
         }
     }
 }

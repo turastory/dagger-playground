@@ -136,3 +136,19 @@ According to official docs...
 - @Singleton can be used on the declaration of class that has an @Inject constructor, or @Binds or @Provides methods.
 - We should also annotate component with @Singleton,
   in order to share an instance annotated with @Singleton among other objects in that component.
+
+
+### @Qualifier
+
+> To differentiate between different things of the same Java type in a case like this, we use qualifiers.
+> A qualifier is an annotation that can be used to give Dagger information it can use
+> to distinguish between instances of the same type.
+> Qualifiers are annotations that are themselves annotated with @Qualifier.
+
+> Qualifiers are often, but certainly not always, used with common data types
+> such as primitive types and String, which may be used in many places in a program for very different reasons.
+
+- Qualifiers are annotations, annotated with @Qualifier.
+- Qualifiers are applied to @Provides or @Binds methods & injection site, to distinguish which one to use,
+  when there are several provide methods that returns same type.
+- Qualifiers are often used with common data types like String, Int, etc.

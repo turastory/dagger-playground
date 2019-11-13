@@ -1,6 +1,7 @@
 package base.component
 
 import base.CommandProcessor
+import base.module.AmountsModule
 import base.module.HelloWorldModule
 import base.module.LoginModule
 import base.module.SystemOutModule
@@ -13,6 +14,7 @@ import javax.inject.Singleton
         HelloWorldModule::class,
         LoginModule::class,
         SystemOutModule::class,
+        AmountsModule::class,
         UserCommandsRouter.InstallationModule::class
     ]
 )
