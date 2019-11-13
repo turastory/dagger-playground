@@ -93,6 +93,14 @@ According to official docs...
 - There's no magic. It just tells Dagger how to populate Map<KeyType, ValueType>.
 - We can request map of instances, instead of a single instance.
 
+#### @BindsOptionalOf
+
+> When Dagger sees a @BindsOptionalOf method, it will use Optional.of(<the account>) if an Account is available;
+> if not, it will use Optional.empty() (or Optional.absent() if you’re using the Guava version of Optional).
+
+- When there's a binding for the type, it returns Optional.of(instance).
+- When there's no binding for the type, it returns Optional.empty()
+
 
 ### @Provides
 

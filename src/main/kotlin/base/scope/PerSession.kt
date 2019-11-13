@@ -1,7 +1,6 @@
 package base.scope
 
 import javax.inject.Scope
-import kotlin.annotation.MustBeDocumented
 
 @Scope
 @MustBeDocumented

@@ -2,7 +2,6 @@ package base.command
 
 import base.Command
 import base.output.Outputter
-import java.util.*
 import javax.inject.Inject
 
 class HelloWorldCommand @Inject constructor(
@@ -13,7 +12,7 @@ class HelloWorldCommand @Inject constructor(
             input.isNotEmpty() -> Command.Result.invalid()
             else -> {
                 outputter.output("world!")
-                Command.Result(Command.Status.HANDLED, Optional.empty())
+                Command.Result.handled()
             }
         }
     }

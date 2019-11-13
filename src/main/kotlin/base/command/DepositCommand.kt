@@ -6,7 +6,6 @@ import base.WithdrawalLimiter
 import base.database.Database
 import base.output.Outputter
 import java.math.BigDecimal
-import java.util.*
 import javax.inject.Inject
 
 class DepositCommand @Inject constructor(
@@ -20,6 +19,6 @@ class DepositCommand @Inject constructor(
         withdrawalLimiter.recordDeposit(amount)
         outputter.output("${account.username} now has: ${account.balance}")
 
-        return Command.Result(Command.Status.HANDLED, Optional.empty())
+        return Command.Result.handled()
     }
 }

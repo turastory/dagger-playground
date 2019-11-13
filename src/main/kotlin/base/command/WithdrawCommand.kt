@@ -8,7 +8,6 @@ import base.output.Outputter
 import base.qualifiers.MaxWithdrawal
 import base.qualifiers.MinimumBalance
 import java.math.BigDecimal
-import java.util.*
 import javax.inject.Inject
 
 class WithdrawCommand @Inject constructor(
@@ -38,7 +37,7 @@ class WithdrawCommand @Inject constructor(
                 account.withdraw(amount)
                 withdrawalLimiter.recordWithdrawal(amount)
                 outputter.output("your new balance is: " + account.balance)
-                Command.Result(Command.Status.HANDLED, Optional.empty())
+                Command.Result.handled()
             }
         }
     }
